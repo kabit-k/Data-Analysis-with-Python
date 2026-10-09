@@ -1,0 +1,12 @@
+phase,issue,rows_or_values,action
+Clean,Column names had spaces/hyphens,21,Renamed to snake_case
+Clean,Non-breaking spaces / stray whitespace in text,6,"Replaced with normal spaces, trimmed, collapsed"
+Clean,Dates stored as text,600,Converted to datetime64
+Clean,Postal code numeric (leading zeros lost),13,Converted to zero-padded 5-char string
+Clean,Missing postal codes,5,0 filled from same city/state; 5 filled from external USPS reference; 0 left NULL
+Clean,Duplicate order lines,0,None found
+Clean,Rows violating business rules,0,"None found, validated OK"
+Clean,Product IDs with several names,1,Standardised to one canonical name per product_id
+Clean,Profit/sales outliers (IQR),57,Flagged and kept (valid business events)
+Clean,Returns sheet: duplicate order IDs,23,Collapsed to one row per returned order
+Clean,Returned orders missing from orders table,0,"None, all returns match an order"
